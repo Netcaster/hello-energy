@@ -195,23 +195,23 @@ export default function HelloEnergyMicrosite() {
                 style={{ borderColor: "var(--border)", background: "var(--card)", backdropFilter: "blur(20px)" }}>
                 <div className="absolute inset-0 pointer-events-none"
                   style={{ background: "radial-gradient(circle at 50% 20%,rgba(255,255,255,0.12),transparent 40%)" }} />
-                <div className="relative grid grid-cols-2 gap-4">
-                  <div className="rounded-[2rem] p-6 min-h-96 flex flex-col justify-between"
+                <div className="relative grid grid-cols-2 gap-3" style={{height:"420px"}}>
+                  <div className="rounded-[2rem] p-5 flex flex-col justify-between overflow-hidden" style={{height:"100%"}}
                     style={{ background: "var(--text)", color: "var(--page-bg)" }}>
                     <div>
                       <p className="text-xs uppercase tracking-[0.25em] opacity-45">VIBE Water</p>
                       <h3 className="text-5xl font-black mt-3">ACCESS</h3>
                     </div>
-                    <Droplets className="h-28 w-28 opacity-80" />
+                    <Droplets className="h-14 w-14 opacity-70" />
                     <p className="font-semibold">Scan. Connect. Unlock.</p>
                   </div>
-                  <div className="space-y-4">
+                  <div className="flex flex-col gap-3" style={{height:"100%"}}>
                     {[
                       [QrCode,  "QR Can",         "Each can routes into rewards, identity, and community."],
                       [Wallet,  "IBIY Companion",  "Bracelet, wallet, and digital access layer."],
                       [Trophy,  "Win + Give",       "Rewards, prizes, and proceeds supporting causes."],
                     ].map(([Icon, title, copy]) => (
-                      <div key={title} className="rounded-[2rem] border p-5"
+                      <div key={title} className="rounded-[2rem] border p-4 flex flex-col justify-between flex-1"
                         style={{ borderColor: "var(--border)", background: "var(--card)" }}>
                         <Icon className="h-9 w-9 mb-4" style={{ color: "var(--text)" }} />
                         <h4 className="font-bold text-xl text-white">{title}</h4>
