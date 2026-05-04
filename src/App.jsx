@@ -191,31 +191,36 @@ export default function HelloEnergyMicrosite() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }}>
-              <div className="relative rounded-[2.5rem] border p-6 md:p-8 shadow-2xl overflow-hidden"
-                style={{ borderColor: "var(--border)", background: "var(--card)", backdropFilter: "blur(20px)" }}>
+              <div className="relative rounded-[2.5rem] border shadow-2xl overflow-hidden"
+                style={{ borderColor: "var(--border)", background: "var(--card)", backdropFilter: "blur(20px)", padding: "20px" }}>
                 <div className="absolute inset-0 pointer-events-none"
-                  style={{ background: "radial-gradient(circle at 50% 20%,rgba(255,255,255,0.12),transparent 40%)" }} />
-                <div className="relative grid grid-cols-2 gap-3" style={{height:"420px"}}>
-                  <div className="rounded-[2rem] p-5 flex flex-col justify-between overflow-hidden" style={{height:"100%"}}
-                    style={{ background: "var(--text)", color: "var(--page-bg)" }}>
+                  style={{ background: "radial-gradient(circle at 50% 20%,rgba(255,255,255,0.10),transparent 40%)" }} />
+                {/* Two-col card — fixed height, both cols fill equally */}
+                <div className="relative grid gap-3" style={{ gridTemplateColumns: "1fr 1fr", height: "400px" }}>
+                  {/* LEFT — white panel */}
+                  <div className="rounded-[1.5rem] flex flex-col justify-between p-5 overflow-hidden"
+                    style={{ background: "var(--text)", color: "var(--page-bg)", height: "100%" }}>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.25em] opacity-45">VIBE Water</p>
-                      <h3 className="text-5xl font-black mt-3">ACCESS</h3>
+                      <p className="text-xs uppercase tracking-[0.22em] opacity-40 mb-2">VIBE Water</p>
+                      <h3 className="text-4xl font-black leading-none">ACCESS</h3>
                     </div>
-                    <Droplets className="h-14 w-14 opacity-70" />
-                    <p className="font-semibold">Scan. Connect. Unlock.</p>
+                    <Droplets className="h-16 w-16 opacity-60" />
+                    <p className="font-semibold text-sm">Scan. Connect. Unlock.</p>
                   </div>
-                  <div className="flex flex-col gap-3" style={{height:"100%"}}>
+                  {/* RIGHT — 3 stacked cards */}
+                  <div className="flex flex-col gap-2" style={{ height: "100%" }}>
                     {[
-                      [QrCode,  "QR Can",         "Each can routes into rewards, identity, and community."],
-                      [Wallet,  "IBIY Companion",  "Bracelet, wallet, and digital access layer."],
-                      [Trophy,  "Win + Give",       "Rewards, prizes, and proceeds supporting causes."],
+                      [QrCode,  "QR Can",        "Each can routes into rewards, identity, and community."],
+                      [Wallet,  "IBIY Companion", "Bracelet, wallet, and digital access layer."],
+                      [Trophy,  "Win + Give",     "Rewards, prizes, and proceeds supporting causes."],
                     ].map(([Icon, title, copy]) => (
-                      <div key={title} className="rounded-[2rem] border p-4 flex flex-col justify-between flex-1"
-                        style={{ borderColor: "var(--border)", background: "var(--card)" }}>
-                        <Icon className="h-9 w-9 mb-4" style={{ color: "var(--text)" }} />
-                        <h4 className="font-bold text-xl text-white">{title}</h4>
-                        <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>{copy}</p>
+                      <div key={title} className="rounded-[1.5rem] border flex flex-col justify-between p-4"
+                        style={{ borderColor: "var(--border)", background: "var(--card)", flex: 1 }}>
+                        <Icon className="h-6 w-6 mb-2" style={{ color: "var(--text)" }} />
+                        <div>
+                          <h4 className="font-bold text-base text-white leading-tight">{title}</h4>
+                          <p className="text-xs mt-1 leading-relaxed" style={{ color: "var(--text-muted)" }}>{copy}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
