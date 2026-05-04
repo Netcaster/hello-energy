@@ -195,31 +195,29 @@ export default function HelloEnergyMicrosite() {
                 style={{ borderColor: "var(--border)", background: "var(--card)", backdropFilter: "blur(20px)", padding: "20px" }}>
                 <div className="absolute inset-0 pointer-events-none"
                   style={{ background: "radial-gradient(circle at 50% 20%,rgba(255,255,255,0.10),transparent 40%)" }} />
-                {/* Two-col card — fixed height, both cols fill equally */}
-                <div className="relative grid gap-3" style={{ gridTemplateColumns: "1fr 1fr", height: "400px" }}>
-                  {/* LEFT — white panel */}
-                  <div className="rounded-[1.5rem] flex flex-col justify-between p-5 overflow-hidden"
-                    style={{ background: "var(--text)", color: "var(--page-bg)", height: "100%" }}>
+                {/* Two-col card */}
+                <div className="relative" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"10px", height:"460px" }}>
+                  {/* LEFT */}
+                  <div style={{ background:"var(--text)", color:"var(--page-bg)", borderRadius:"20px", padding:"20px", display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.22em] opacity-40 mb-2">VIBE Water</p>
-                      <h3 className="text-4xl font-black leading-none">ACCESS</h3>
+                      <p style={{ fontSize:"10px", textTransform:"uppercase", letterSpacing:"0.22em", opacity:0.4, marginBottom:"8px" }}>VIBE Water</p>
+                      <h3 style={{ fontSize:"clamp(32px,4vw,48px)", fontWeight:900, lineHeight:1, margin:0 }}>ACCESS</h3>
                     </div>
-                    <Droplets className="h-16 w-16 opacity-60" />
-                    <p className="font-semibold text-sm">Scan. Connect. Unlock.</p>
+                    <Droplets style={{ width:56, height:56, opacity:0.55 }} />
+                    <p style={{ fontWeight:600, fontSize:"13px", margin:0 }}>Scan. Connect. Unlock.</p>
                   </div>
-                  {/* RIGHT — 3 stacked cards */}
-                  <div className="flex flex-col gap-2" style={{ height: "100%" }}>
+                  {/* RIGHT — 3 cards filling full height */}
+                  <div style={{ display:"flex", flexDirection:"column", gap:"10px", height:"100%" }}>
                     {[
                       [QrCode,  "QR Can",        "Each can routes into rewards, identity, and community."],
                       [Wallet,  "IBIY Companion", "Bracelet, wallet, and digital access layer."],
                       [Trophy,  "Win + Give",     "Rewards, prizes, and proceeds supporting causes."],
                     ].map(([Icon, title, copy]) => (
-                      <div key={title} className="rounded-[1.5rem] border flex flex-col justify-between p-4"
-                        style={{ borderColor: "var(--border)", background: "var(--card)", flex: 1 }}>
-                        <Icon className="h-6 w-6 mb-2" style={{ color: "var(--text)" }} />
+                      <div key={title} style={{ border:"1px solid var(--border)", background:"var(--card)", borderRadius:"20px", padding:"16px", display:"flex", flexDirection:"column", justifyContent:"space-between", flex:1 }}>
+                        <Icon style={{ width:22, height:22, color:"var(--text)", marginBottom:"8px" }} />
                         <div>
-                          <h4 className="font-bold text-base text-white leading-tight">{title}</h4>
-                          <p className="text-xs mt-1 leading-relaxed" style={{ color: "var(--text-muted)" }}>{copy}</p>
+                          <h4 style={{ fontWeight:700, fontSize:"15px", color:"var(--text)", margin:"0 0 4px" }}>{title}</h4>
+                          <p style={{ fontSize:"12px", color:"var(--text-muted)", margin:0, lineHeight:1.5 }}>{copy}</p>
                         </div>
                       </div>
                     ))}
